@@ -34,15 +34,26 @@ int main(void) {
 
 
 
-     printf("                                                         RECORD:\n");
-     printf("                 =====================================================================================\n");
-     printf("                 |       CASE          VEHICLE PLATE           VIOLATION TYPE       DATE        FINE  |\n");
-     printf("                 |      112134           DHA-12111              OVER SPEED         10-2-26       1500 |\n");
-     printf("                 |      232222           DHA-322333             RED LIGHT          12-2-26       2000 |\n");
-     printf("                 |      223322           DHA-23322              OVER TAKING        14-2-26       500  |\n");
-     printf("                 |                                                                                    |\n");
-     printf("                 |                                                                                    |\n");
-     printf("                 =====================================================================================\n");
+     int ca_se;
+    double F;
+    char v_t[20], name_plate[20], date[20];
+
+    printf("Enter case number: \n");
+    scanf("%d", &ca_se);
+    printf("Enter violation type: \n");
+    scanf(" %s", v_t);
+    printf("Enter name plate: \n");
+    scanf("%s", name_plate);
+    printf("Enter fine : \n");
+    scanf("%lf", &F);
+    printf("Enter date: ");
+    scanf("%s", date);
+    printf("                               MENU:\N");
+    printf("=====================================================================\n");    //this number plate has done same offence for two thats why his fine gets addition of 500 tk
+    printf("|   CASE      NAME PLATE      VIOLATION TYPE     FINE     LAST DATE |\n");
+    printf("|   %-9d   %-14s  %-15s %-8.2f %-9s  |\n", ca_se, name_plate, v_t, F, date);
+    printf("|   %-9d   %-14s  %-15s %-8.2f %-9s  |\n", ca_se + 1, name_plate, v_t, F+500, date);
+    printf("=====================================================================\n");
 
      printf("                                                                                 Powered by codec crew\n");
 
