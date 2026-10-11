@@ -48,7 +48,7 @@ int main(void) {
     scanf("%lf", &F);
     printf("Enter date: ");
     scanf("%s", date);
-    printf("                               MENU:\n");
+    printf("                               RECORD:\n");
     printf("=====================================================================\n");    //this number plate has done same offence for two thats why his fine gets addition of 500 tk
     printf("|   CASE      NAME PLATE      VIOLATION TYPE     FINE     LAST DATE |\n");
     printf("|   %-9d   %-14s  %-15s %-8.2f %-9s  |\n", ca_se, name_plate, v_t, F, date);
