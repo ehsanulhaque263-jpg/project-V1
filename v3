@@ -1,0 +1,107 @@
+#include <stdio.h>
+#include <math.h>
+void banner(void);
+void menu(void);
+void record(void);
+int get_id(int id);
+int number_plate(int number);
+char violation_type(char vio);
+double fine(double f);
+double net_fine(double f, int oc_number);
+
+int main(void)
+{
+    int id;
+    int number;
+    char vio;
+    double f;
+    int oc_number;
+    double total_fine;
+    printf("Enter ID: ");
+    scanf("%d", &id);
+    printf("Enter number: ");
+    scanf("%d", &number);
+    printf("Enter violation type: ");
+    scanf(" %c", &vio);
+    printf("Enter fine: ");
+    scanf("%lf", &f);
+    printf("Enter occurrence number: ");
+    scanf("%d", &oc_number);
+    banner();
+    menu();
+    record();
+    get_id(id);
+    number_plate(number);
+    violation_type(vio);
+    fine(f);
+    total_fine = net_fine(f, oc_number);
+    printf("Total fine   \t:%8.2f\n", total_fine);
+
+    return 0;
+}
+void banner(void)
+{
+     printf("                 ====================================================================================\n");
+     printf("                 |                                                                                  |\n");
+     printf("                 |                         T R A F F I C   V I O L A T I O N                        |\n");
+     printf("                 |                         ---------------------------------                        |\n");
+     printf("                 |                                THE DIGITAL REGISTRY                              |\n");
+     printf("                 |                                                                                  |\n");
+     printf("                 |                                                                                  |\n");
+     printf("                 ====================================================================================\n");
+}
+
+void menu(void)
+{
+    printf("                                                          MENU:\n");
+    printf("                 =====================================================================================\n");
+    printf("                 | [1] VEHICLE HISTORY                                                               |\n");
+    printf("                 | [2] VIOLATION TYPE AND FINE                                                       |\n");
+    printf("                 | [3] REPEAT OFFENDERS                                                              |\n");
+    printf("                 | [4] UNPAID LIST                                                                   |\n");
+    printf("                 | [5] PAYMENT                                                                       |\n");
+    printf("                 | [6] DEADLINE                                                                      |\n");
+    printf("                 | [7] ALERT CENTER                                                                  |\n");
+    printf("                 | [8] HELPLINE                                                                      |\n");
+    printf("                 | [9] EXIT                                                                          |\n");
+    printf("                 |                                                                                   |\n");
+    printf("                 |                                                                                   |\n");
+    printf("                 |                                                                                   |\n");
+    printf("                 =====================================================================================\n");
+}
+
+int get_id(int id)
+{
+    printf("ID           \t:%8.0d \n", id);
+    return id;
+}
+
+void record(void)
+{
+    printf("RECORD\n");
+}
+
+int number_plate(int number)
+{
+    printf("NUMBER PLATE \t:%8d\n", number);
+    return number;
+}
+
+char violation_type(char vio)
+{
+    printf("VIOLATION TYPE\t:%8c\n", vio);
+    return vio;
+}
+
+double fine(double f)
+{
+    printf("FINE         \t:%8.2f\n", f);
+    return f;
+}
+
+double net_fine(double f, int oc_number)    //total fine is occarence numberi nto multiply by fine
+{
+    double n_f = f * oc_number;
+    return n_f;
+    
+}
