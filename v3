@@ -3,18 +3,20 @@
 void banner(void);
 void menu(void);
 void record(void);
-int get_id(int id);
-int number_plate(int number);
-char violation_type(char vio);
+int get_id(void);
+int number_plate(void);
+char violation_type(void);
 double fine(double f);
 double net_fine(double f, int oc_number);
-int id;
+    int id;
     int number;
     char vio;
     double f;
     int oc_number;
-    double total_fine;
-
+    double total_fine;   //here violation types are A,B
+    double n_f;
+    int x,y;
+    char z;
 int main(void)
 {
     printf("Enter ID: ");
@@ -30,9 +32,12 @@ int main(void)
     banner();
     menu();
     record();
-    get_id(id);
-    number_plate(number);
-    violation_type(vio);
+    x=get_id();
+    printf("ID           \t:%8.0d \n", x);
+    y=number_plate();
+    printf("NUMBER PLATE \t:%8d\n", y);
+    z=violation_type();
+    printf("VIOLATION TYPE\t:%8c\n", z);
     fine(f);
     total_fine = net_fine(f, oc_number);
     printf("Total fine   \t:%8.2f\n", total_fine);
@@ -70,9 +75,8 @@ void menu(void)
     printf("                 =====================================================================================\n");
 }
 
-int get_id(int id)
+int get_id(void)
 {
-    printf("ID           \t:%8.0d \n", id);
     return id;
 }
 
@@ -81,15 +85,13 @@ void record(void)
     printf("RECORD\n");
 }
 
-int number_plate(int number)
+int number_plate(void)
 {
-    printf("NUMBER PLATE \t:%8d\n", number);
     return number;
 }
 
-char violation_type(char vio)
+char violation_type(void)
 {
-    printf("VIOLATION TYPE\t:%8c\n", vio);
     return vio;
 }
 
@@ -99,9 +101,9 @@ double fine(double f)
     return f;
 }
 
-double net_fine(double f, int oc_number)    //total fine is occarence numberi nto multiply by fine
+double net_fine(double f, int oc_number)    //total fine is occarence number into multiply by fine
 {
-    double n_f = f * oc_number;
+     n_f = f * oc_number;
     return n_f;
-    
+
 }
